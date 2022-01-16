@@ -26,14 +26,16 @@ function Listing() {
             .then(response => {
                 const data = response.data as MoviePage;
                 setPage(data);
-                
-
             });
     }, [pageNumber]);
 
+    const handlePageChance = (newPagerNumber : number) => {
+        setPageNumber(newPagerNumber);   
+    }
+
     return (
         <>
-            <Pagination />
+            <Pagination page={page} onChange={handlePageChance} />
 
             <div className="container">
                 <div className="row">
